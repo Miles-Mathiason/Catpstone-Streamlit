@@ -58,7 +58,7 @@ def get_stored_artists():
                 return result
     except (Exception, psycopg2.DatabaseError) as error:
         print("Error:", error)
-return None
+            return None
 
 
 stored_artists = get_stored_artists()
