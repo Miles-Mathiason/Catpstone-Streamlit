@@ -17,7 +17,7 @@ database_config = {
         "host": os.environ.get('HOST'),
         "port": "5432"
     }
-# conn = psycopg2.connect(**database_config)
+conn = psycopg2.connect(**database_config)
 
 def get_artists():
     '''Output is list of artists with a song in top 100 UK official charts'''
@@ -58,7 +58,7 @@ def get_stored_artists():
                 return result
     except (Exception, psycopg2.DatabaseError) as error:
         print("Error:", error)
-            return None
+        return None
 
 
 stored_artists = get_stored_artists()
@@ -240,3 +240,10 @@ col4.metric("Last Weeks Most Popular Genre", 'max_genre_last')
     
 #    genre_week_data+=[(week,count)]
     
+
+
+    
+    
+
+
+
