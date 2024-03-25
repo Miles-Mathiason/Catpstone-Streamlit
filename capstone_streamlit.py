@@ -109,7 +109,7 @@ def get_artist_data(token, artist):
         return json_result
     except:
         return {}
-  token = get_token()
+token = get_token()
 
 ### Front-end
 st.title('UK Charts Artist Breakdown with Spotify Data')
