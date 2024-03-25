@@ -7,7 +7,7 @@ conn = st.connection("postgresql", type="sql")
 df = conn.query('SELECT * FROM student.mm_artists;', ttl="10m")
 
 
-ordered_weeks = tuple(df['week_'])
+ordered_weeks = tuple(set(df['week_']))
 
 
 
