@@ -1,5 +1,6 @@
 import streamlit as st
 
+## Database
 # Initialize connection.
 conn = st.connection("postgresql", type="sql")
 
@@ -25,11 +26,13 @@ entering_artists_count = len(entering_artists)
 defending_artists = set(artist_dict[ordered_weeks[len(ordered_weeks)-1]]) - entering_artists
 defending_artists_count = len(defending_artists)
 
-#Making week:artist_count dict
+# Making week:artist_count dict
 artist_count_dict = {}
 for week in artist_dict:
     artist_count_dict[week] = len(artist_dict[week])
-    
+
+## Spotify Web API
+st.write(st.secrets["CLIENT_ID"])    
   
 
 ### Front-end
