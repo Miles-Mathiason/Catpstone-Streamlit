@@ -15,7 +15,6 @@ for week in ordered_weeks:
   for i in range(0,len(df)):
     if df.loc[i]["week_"] == week:
       artists += [df.loc[i]["artist"]
-  f'{artists}'
 
 f'{artist_dict}'
       
