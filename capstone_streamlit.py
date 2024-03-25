@@ -142,7 +142,8 @@ col2.header('Weeks in the Charts')
 for week in weeks:
     col2.markdown("- " + week)
 
-st.write(get_top_tracks_by_artist(token, artist, 'GB'))
+for json in st.write(get_top_tracks_by_artist(token, artist, 'GB')):
+    st.write(json['name'])
 
 
 
