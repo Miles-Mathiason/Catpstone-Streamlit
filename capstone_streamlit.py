@@ -31,7 +31,11 @@ defending_artists_count = len(defending_artists)
 
 ### Front-end
 st.title('UK Charts Artist Breakdown with Spotify Data')
-f'Most recent chart data:  {ordered_weeks[len(ordered_weeks)-1]}'
+
+col1, col2, col3 = st.columns(3)
+col1.metric("Recent Chart Period", ordered_weeks[len(ordered_weeks)-1])
+col2.metric("Number of Entering Artists", entering_artists_count)
+col3.metric("Number of Remaining Artists", defending_artists_count)
 
 
 
