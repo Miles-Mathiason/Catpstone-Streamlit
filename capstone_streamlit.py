@@ -122,6 +122,17 @@ col2.metric("Number of Remaining Artists", f'#{defending_artists_count}')
 
 st.bar_chart(artist_count_dict, width=1)
 
-st.write(get_artist_data(token, 'central cee'))
+## Artist breakdown
+artist_set = set(df['artist'])
+artist = st.selectbox('Pick an Artist',tuple(artists_set))
+
+artist_data = get_artist_data(token, artist)
+followers = artist_data['followers']['total']
+genres = artist_data['genres']
+popularity = artist_data['popularity']
+image_url = artist_data['images'][0]['url']
+
+f'{followers}'
+
 
 
