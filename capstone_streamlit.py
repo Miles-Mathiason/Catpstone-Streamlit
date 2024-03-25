@@ -141,7 +141,8 @@ col2.metric('Spotify Followers',followers)
 col2.header('Weeks in the Charts')
 for week in weeks:
     col2.markdown("- " + week)
-st.write(get_top_tracks_by_artist(token, artist, 'GB')
+
+st.write(get_top_tracks_by_artist(token, artist, 'GB'))
 
 
 
