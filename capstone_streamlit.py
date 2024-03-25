@@ -17,7 +17,7 @@ for week in ordered_weeks:
             artists += [df.loc[i]["artist"]]
     artist_dict[week] = artists
 
-f'{artist_dict}'
+f'{keys(artist_dict)}'
       
     
   
