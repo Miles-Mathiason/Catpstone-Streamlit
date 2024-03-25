@@ -7,7 +7,7 @@ conn = st.connection("postgresql", type="sql")
 df = conn.query('SELECT * FROM student.mm_artists;', ttl="10m")
 
 
-print(df['artist'])
+
 
 
 
@@ -19,3 +19,6 @@ print(df['artist'])
 
 st.title('UK Charts Artist Breakdown with Spotify Data')
 st.dataframe(df)
+
+
+print([1,2,3])
