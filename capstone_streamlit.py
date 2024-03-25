@@ -134,10 +134,13 @@ image_url = artists_data['images'][0]['url']
 weeks = list(df.loc[df['artist'] == f'{artist}']['week_'])
 
 
-col1, col2, col3 = st.columns(3)
-col1.header('Weeks in the Charts')
+col1, col2 = st.columns(2)
+
+col1.image(image_url)
+
+col2.header('Weeks in the Charts')
 for week in weeks:
-    col1.markdown("- " + week)
+    col2.markdown("- " + week)
 
 
 
