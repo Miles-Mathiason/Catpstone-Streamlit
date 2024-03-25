@@ -127,10 +127,10 @@ artists_set = set(df['artist'])
 artist = st.selectbox('Pick an Artist',tuple(artists_set))
 
 artists_data = get_artist_data(token, artist)
-followers = artist_data['followers']['total']
-genres = artist_data['genres']
-popularity = artist_data['popularity']
-image_url = artist_data['images'][0]['url']
+followers = artists_data['followers']['total']
+genres = artists_data['genres']
+popularity = artists_data['popularity']
+image_url = artists_data['images'][0]['url']
 
 f'{followers}'
 
