@@ -134,7 +134,8 @@ image_url = artists_data['images'][0]['url']
 weeks = list(df.loc[df['artist'] == f'{artist}']['week_'])
 
 
-f'{weeks}'
+col1, col2, col3 = st.columns(3)
+col1.header('test')
 
 
 
