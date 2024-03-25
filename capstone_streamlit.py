@@ -143,10 +143,14 @@ for week in weeks:
     col2.markdown("- " + week)
 
 col1, col2 = st.columns(2)
+
+col1.header('Top Tracks')
 count = 0
 for json in get_top_tracks_by_artist(token, artist, 'GB'):
     count += 1
-    st.write(f'{count}. ' + json['name'])
+    col1.write(f'{count}. ' + json['name'])
 
+col2.header('Related Artists')
+col2.write(get_related_artists(token, artist))
 
 
