@@ -122,4 +122,6 @@ col2.metric("Number of Remaining Artists", f'#{defending_artists_count}')
 
 st.bar_chart(artist_count_dict, width=1)
 
+st.write(get_artist_data(token, 'central cee'))
+
 
