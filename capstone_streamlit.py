@@ -126,7 +126,7 @@ st.bar_chart(artist_count_dict, width=1)
 artist_set = set(df['artist'])
 artist = st.selectbox('Pick an Artist',tuple(artists_set))
 
-artist_data = get_artist_data(token, artist)
+artists_data = get_artist_data(token, artist)
 followers = artist_data['followers']['total']
 genres = artist_data['genres']
 popularity = artist_data['popularity']
