@@ -151,6 +151,6 @@ for json in get_top_tracks_by_artist(token, artist, 'GB'):
     col1.write(f'{count}. ' + json['name'])
 
 col2.header('Related Artists')
-col2.write(search_for_artist)
+col2.write(search_for_artist(token,artist))
 
 
