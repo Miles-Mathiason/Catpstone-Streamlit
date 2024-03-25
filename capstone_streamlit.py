@@ -88,13 +88,13 @@ def get_top_tracks_by_artist(token, artist, market):
 
 def get_related_artists(token, artist):
     artist_search = search_for_artist(token,artist)
-    artist_id = artist_search['id']
+    #artist_id = artist_search['id']
     try:
-        url = f'https://api.spotify.com/v1/artists/{artist_id}/related-artists'
-        headers = get_auth_header(token)
-        result = get(url, headers=headers)
-        json_result = json.loads(result.content)["artists"]
-        return json_result
+        #url = f'https://api.spotify.com/v1/artists/{artist_id}/related-artists'
+        #headers = get_auth_header(token)
+        #result = get(url, headers=headers)
+        #json_result = json.loads(result.content)["artists"]
+        return artist_search
     except:
         return {}
 
