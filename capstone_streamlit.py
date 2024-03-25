@@ -32,7 +32,7 @@ for week in artist_dict:
     artist_count_dict[week] = len(artist_dict[week])
 
 ## Spotify Web API
-st.write(st.secrets["CLIENT_ID"])    
+st.write(st.secrets.credentials["CLIENT_ID"])    
   
 
 ### Front-end
