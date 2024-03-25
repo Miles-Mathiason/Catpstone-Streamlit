@@ -34,4 +34,4 @@ def get_stored_artists():
 
 stored_artists = get_stored_artists()
 
-f'{stored_artists}
+f'{stored_artists}'
