@@ -25,7 +25,10 @@ entering_artists_count = len(entering_artists)
 defending_artists = set(artist_dict[ordered_weeks[len(ordered_weeks)-1]]) - entering_artists
 defending_artists_count = len(defending_artists)
 
-      
+#Making week:artist_count dict
+artist_count_dict = {}
+for week in artist_dict:
+    artist_count_dict[week] = len(artist_dict[week])
     
   
 
@@ -38,5 +41,6 @@ col1, col2 = st.columns(2)
 col1.metric("Number of Entering Artists", f'#{entering_artists_count}')
 col2.metric("Number of Remaining Artists", f'#{defending_artists_count}')
 
+f'{artist_count_dict}'
 
 
