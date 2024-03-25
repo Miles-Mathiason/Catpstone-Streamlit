@@ -131,8 +131,10 @@ followers = artists_data['followers']['total']
 genres = artists_data['genres']
 popularity = artists_data['popularity']
 image_url = artists_data['images'][0]['url']
+weeks = list(df.loc[df['artist'] == f'{artist}']['week_'])
 
-f'{followers}'
+
+f'{weeks}'
 
 
 
