@@ -25,6 +25,19 @@ for week in ordered_weeks:
 entering_artists = set(artist_dict[ordered_weeks[len(ordered_weeks)-1]])-set(artist_dict[ordered_weeks[len(ordered_weeks)-2]])
 entering_artists_count = len(entering_artists)
 
+#Defending artist count
+defending_artists = set(artist_dict[ordered_weeks[len(ordered_weeks)-1]]) - entering_artists
+defending_artists_count = len(defending_artists)
+
+# Making week:artist_count dict
+artist_count_dict = {}
+for week in artist_dict:
+    artist_count_dict[week] = len(artist_dict[week])
+
+## Spotify Web API
+client_id = st.secrets.credentials["CLIENT_ID"] 
+client_secret = st.secrets.credentials["CLIENT_SECRET"]
+
 def get_token():
     auth_string = client_id + ":" + client_secret
     auth_bytes = auth_string.encode("utf-8")
@@ -41,18 +54,61 @@ def get_token():
     token = json_result["access_token"]
     return token
 
-#Defending artist count
-defending_artists = set(artist_dict[ordered_weeks[len(ordered_weeks)-1]]) - entering_artists
-defending_artists_count = len(defending_artists)
+def get_auth_header(token):
+    return {"Authorization": "Bearer " + token}
 
-# Making week:artist_count dict
-artist_count_dict = {}
-for week in artist_dict:
-    artist_count_dict[week] = len(artist_dict[week])
+def search_for_artist(token, artist_name):
+    try:
+        url = "https://api.spotify.com/v1/search"
+        headers = get_auth_header(token)
+        query = f"?q={artist_name}&type=artist&limit=1"
 
-## Spotify Web API
-client_id = st.secrets.credentials["CLIENT_ID"] 
-client_secret = st.secrets.credentials["CLIENT_SECRET"]
+        query_url = url + query
+        result = get(query_url, headers=headers)
+        json_result = json.loads(result.content)["artists"]["items"]
+        if len(json_result) == 0:
+            print('No artist with this name found...')
+            return None
+
+        return json_result[0]
+    except:
+        return {}
+
+def get_top_tracks_by_artist(token, artist, market):
+    artist_search = search_for_artist(token,artist)
+    artist_id = artist_search['id']
+    try:
+        url = f'https://api.spotify.com/v1/artists/{artist_id}/top-tracks?country={market}'
+        headers = get_auth_header(token)
+        result = get(url, headers=headers)
+        json_result = json.loads(result.content)["tracks"]
+        return json_result
+    except:
+        return {}
+
+def get_related_artists(token, artist):
+    artist_search = search_for_artist(token,artist)
+    artist_id = artist_search['id']
+    try:
+        url = f'https://api.spotify.com/v1/artists/{artist_id}/related-artists'
+        headers = get_auth_header(token)
+        result = get(url, headers=headers)
+        json_result = json.loads(result.content)["artists"]
+        return json_result
+    except:
+        return {}
+
+def get_artist_data(token, artist):
+    artist_search = search_for_artist(token,artist)
+    try:
+        artist_id = artist_search['id']
+        url = f'https://api.spotify.com/v1/artists/{artist_id}'
+        headers = get_auth_header(token)
+        result = get(url, headers=headers)
+        json_result = json.loads(result.content)
+        return json_result
+    except:
+        return {}
   
 
 ### Front-end
