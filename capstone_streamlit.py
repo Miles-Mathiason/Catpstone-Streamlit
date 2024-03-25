@@ -25,6 +25,22 @@ for week in ordered_weeks:
 entering_artists = set(artist_dict[ordered_weeks[len(ordered_weeks)-1]])-set(artist_dict[ordered_weeks[len(ordered_weeks)-2]])
 entering_artists_count = len(entering_artists)
 
+def get_token():
+    auth_string = client_id + ":" + client_secret
+    auth_bytes = auth_string.encode("utf-8")
+    auth_base64 = str(base64.b64encode(auth_bytes),"utf-8")
+    
+    url = "https://accounts.spotify.com/api/token"
+    headers = {
+        "Authorization": "Basic " + auth_base64,
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+    data = {"grant_type": "client_credentials"}
+    result = post(url, headers=headers, data=data)
+    json_result = json.loads(result.content)
+    token = json_result["access_token"]
+    return token
+
 #Defending artist count
 defending_artists = set(artist_dict[ordered_weeks[len(ordered_weeks)-1]]) - entering_artists
 defending_artists_count = len(defending_artists)
