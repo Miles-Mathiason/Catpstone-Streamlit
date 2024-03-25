@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 
 ## Database
 # Initialize connection.
@@ -32,7 +33,8 @@ for week in artist_dict:
     artist_count_dict[week] = len(artist_dict[week])
 
 ## Spotify Web API
-st.write(st.secrets.credentials["CLIENT_ID"])    
+client_id = st.secrets.credentials["CLIENT_ID"] 
+client_secret = st.secrets.credentials["CLIENT_SECRET"]
   
 
 ### Front-end
