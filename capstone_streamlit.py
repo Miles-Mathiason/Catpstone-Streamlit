@@ -17,12 +17,18 @@ for week in ordered_weeks:
             artists += [df.loc[i]["artist"]]
     artist_dict[week] = artists
 
-f'{artist_dict}'
+# Entering artist count
+entering_artists = set(artist_dict[ordered_weeks[len(ordered_weeks)-1]])-set(artist_dict[ordered_weeks[len(ordered_weeks)-2]])
+entering_artists_count = len(entering_artists)
+
+#Defending artist count
+defending_artists = set(artist_dict[ordered_weeks[len(ordered_weeks)-1]]) - entering_artists
+defending_artists_count = len(defending_artists)
+
+f'{entering_artists_count}'
       
     
   
-
-
 
 
 
