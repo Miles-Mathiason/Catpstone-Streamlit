@@ -25,17 +25,13 @@ entering_artists_count = len(entering_artists)
 defending_artists = set(artist_dict[ordered_weeks[len(ordered_weeks)-1]]) - entering_artists
 defending_artists_count = len(defending_artists)
 
-f'{entering_artists_count}'
       
     
   
 
-
-
-
-
-
-
+### Front-end
 st.title('UK Charts Artist Breakdown with Spotify Data')
-st.dataframe(df)
+f'Most recent chart data:  {ordered_weeks[len(ordered_weeks)-1]}'
+
+
 
