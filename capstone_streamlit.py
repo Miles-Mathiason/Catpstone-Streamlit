@@ -34,8 +34,8 @@ st.title('UK Charts Artist Breakdown with Spotify Data')
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Recent Chart Period", ordered_weeks[len(ordered_weeks)-1])
-col2.metric("Number of Entering Artists", entering_artists_count)
-col3.metric("Number of Remaining Artists", defending_artists_count)
+col2.metric("Number of Entering Artists", f'#{entering_artists_count}')
+col3.metric("Number of Remaining Artists", f'#{defending_artists_count}')
 
 
 
