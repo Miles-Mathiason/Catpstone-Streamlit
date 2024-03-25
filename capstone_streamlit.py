@@ -41,6 +41,6 @@ col1, col2 = st.columns(2)
 col1.metric("Number of Entering Artists", f'#{entering_artists_count}')
 col2.metric("Number of Remaining Artists", f'#{defending_artists_count}')
 
-f'{artist_count_dict}'
+st.bar_chart(artist_count_dict)
 
 
