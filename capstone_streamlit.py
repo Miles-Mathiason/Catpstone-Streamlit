@@ -21,4 +21,4 @@ st.title('UK Charts Artist Breakdown with Spotify Data')
 st.dataframe(df)
 
 
-print([1,2,3])
+f'{[1,2,3]}'
