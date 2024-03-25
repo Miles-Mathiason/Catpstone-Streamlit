@@ -151,6 +151,7 @@ for json in get_top_tracks_by_artist(token, artist, 'GB'):
     col1.write(f'{count}. ' + json['name'])
 
 col2.header('Genres')
-col2.write(genres)
+for genre in genres:
+    col2.markdown("- " + genre)
 
 
