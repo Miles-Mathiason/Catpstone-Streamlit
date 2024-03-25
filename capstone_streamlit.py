@@ -76,8 +76,8 @@ def search_for_artist(token, artist_name):
 
 def get_top_tracks_by_artist(token, artist, market):
     artist_search = search_for_artist(token,artist)
-    artist_id = artist_search['id']
     try:
+        artist_id = artist_search['id']
         url = f'https://api.spotify.com/v1/artists/{artist_id}/top-tracks?country={market}'
         headers = get_auth_header(token)
         result = get(url, headers=headers)
@@ -88,8 +88,8 @@ def get_top_tracks_by_artist(token, artist, market):
 
 def get_related_artists(token, artist):
     artist_search = search_for_artist(token,artist)
-    artist_id = artist_search['id']
     try:
+        artist_id = artist_search['id']
         url = f'https://api.spotify.com/v1/artists/{artist_id}/related-artists'
         headers = get_auth_header(token)
         result = get(url, headers=headers)
