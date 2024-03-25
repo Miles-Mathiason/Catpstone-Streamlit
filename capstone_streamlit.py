@@ -137,7 +137,7 @@ weeks = list(df.loc[df['artist'] == f'{artist}']['week_'])
 col1, col2 = st.columns(2)
 
 col1.image(image_url)
-col2.header(f'Spotify Followers:{followers}')
+col2.header(f'Spotify Followers: {followers}')
 col2.header('Weeks in the Charts')
 for week in weeks:
     col2.markdown("- " + week)
