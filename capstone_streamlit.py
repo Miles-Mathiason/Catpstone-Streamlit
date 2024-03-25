@@ -13,7 +13,7 @@ artist_dict = {}
 for week in ordered_weeks:
   artists = []
   for i in range(0,len(df)):
-    f'{df.loc[i]}'
+    f'{df.loc[i]['week_]}'
     
   
 
