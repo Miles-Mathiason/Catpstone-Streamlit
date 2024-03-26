@@ -110,15 +110,7 @@ def get_artist_data(token, artist):
     except:
         return {}
 token = get_token()
-url = "https://api.spotify.com/v1/search"
-headers = get_auth_header(token)
-artist_name = 'central cee'
-query = f"?q={artist_name}&type=artist&limit=1"
 
-query_url = url + query
-result = get(query_url, headers=headers)
-
-st.write(result)
 ### Front-end
 st.title('UK Charts Artist Breakdown with Spotify Data')
 c1 = st.container()
