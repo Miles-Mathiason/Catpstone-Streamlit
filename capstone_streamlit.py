@@ -110,7 +110,7 @@ def get_artist_data(token, artist):
     except:
         return {}
 token = get_token()
-st.write(token)
+st.write(search_for_artist(token, 'central cee'))
 ### Front-end
 st.title('UK Charts Artist Breakdown with Spotify Data')
 c1 = st.container()
