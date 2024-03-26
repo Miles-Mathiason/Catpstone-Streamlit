@@ -139,9 +139,6 @@ col1, col2 = c2.columns(2)
 
 col2.image(image_url, caption=artists_data['name'])
 col1.metric('Spotify Followers',f'{followers:,}')
-col2.header('Weeks in the Charts')
-for week in weeks:
-    col2.markdown("- " + week)
 
 col1, col2, col3 = c2.columns(3)
 
