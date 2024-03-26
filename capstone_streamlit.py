@@ -113,7 +113,7 @@ token = get_token()
 
 ### Front-end
 st.title('UK Charts Artist Breakdown with Spotify Data')
-c1 = st.container()
+c1 = st.container(border=True)
 c1.metric("Recent Chart Period", ordered_weeks[len(ordered_weeks)-1])
 
 col1, col2 = c1.columns(2)
