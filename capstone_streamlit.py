@@ -128,7 +128,7 @@ artists_set = set(df['artist'])
 artist = c2.selectbox('Pick an Artist',tuple(artists_set))
 
 artists_data = get_artist_data(token, artist)
-followers = artists_data['followers']['total']
+followers = artists_data["followers"]['total']
 genres = artists_data['genres']
 popularity = artists_data['popularity']
 image_url = artists_data['images'][0]['url']
