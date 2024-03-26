@@ -137,8 +137,8 @@ weeks = list(df.loc[df['artist'] == f'{artist}']['week_'])
 
 col1, col2 = c2.columns(2)
 c21 = col1.container(border=True)
-c21.image(image_url, caption=artists_data['name'])
-col1.metric('Spotify Followers',f'{followers:,}')
+col2.image(image_url, caption=artists_data['name'])
+c21.metric('Spotify Followers',f'{followers:,}')
 
 col1, col2, col3 = c2.columns(3)
 
