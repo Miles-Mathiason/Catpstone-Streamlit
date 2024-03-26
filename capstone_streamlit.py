@@ -113,18 +113,19 @@ token = get_token()
 
 ### Front-end
 st.title('UK Charts Artist Breakdown with Spotify Data')
-c = st.container()
-c.metric("Recent Chart Period", ordered_weeks[len(ordered_weeks)-1])
+c1 = st.container()
+c1.metric("Recent Chart Period", ordered_weeks[len(ordered_weeks)-1])
 
-col1, col2 = c.columns(2)
+col1, col2 = c1.columns(2)
 col1.metric("Number of Entering Artists", f'#{entering_artists_count}')
 col2.metric("Number of Remaining Artists", f'#{defending_artists_count}')
 
 #st.bar_chart(artist_count_dict, width=1)
 
 ## Artist breakdown
+c2 = st.container()
 artists_set = set(df['artist'])
-artist = st.selectbox('Pick an Artist',tuple(artists_set))
+artist = c2.selectbox('Pick an Artist',tuple(artists_set))
 
 artists_data = get_artist_data(token, artist)
 followers = artists_data['followers']['total']
@@ -134,7 +135,7 @@ image_url = artists_data['images'][0]['url']
 weeks = list(df.loc[df['artist'] == f'{artist}']['week_'])
 
 
-col1, col2 = st.columns(2)
+col1, col2 = c2.columns(2)
 
 col1.image(image_url, caption=artists_data['name'])
 col2.metric('Spotify Followers',followers)
@@ -142,7 +143,7 @@ col2.header('Weeks in the Charts')
 for week in weeks:
     col2.markdown("- " + week)
 
-col1, col2 = st.columns(2)
+col1, col2 = c2.columns(2)
 
 col1.header('Top Tracks')
 count = 0
