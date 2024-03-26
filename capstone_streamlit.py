@@ -137,22 +137,26 @@ weeks = list(df.loc[df['artist'] == f'{artist}']['week_'])
 
 col1, col2 = c2.columns(2)
 
-col1.image(image_url, caption=artists_data['name'])
-col2.metric('Spotify Followers',f'{followers:,}')
+col2.image(image_url, caption=artists_data['name'])
+col1.metric('Spotify Followers',f'{followers:,}')
 col2.header('Weeks in the Charts')
 for week in weeks:
     col2.markdown("- " + week)
 
-col1, col2 = c2.columns(2)
+col1, col2, col3 = c2.columns(3)
 
-col1.header('Top Tracks')
+col1.header('Weeks in the Charts')
+for week in weeks:
+    col1.markdown("- " + week)
+
+col2.header('Top Tracks')
 count = 0
 for json in get_top_tracks_by_artist(token, artist, 'GB'):
     count += 1
-    col1.write(f'{count}. ' + json['name'])
+    col2.write(f'{count}. ' + json['name'])
 
-col2.header('Genres')
+col3.header('Genres')
 for genre in genres:
-    col2.markdown("- " + genre)
+    col3.markdown("- " + genre)
 
 
