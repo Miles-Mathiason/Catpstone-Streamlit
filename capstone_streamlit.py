@@ -142,15 +142,15 @@ col1.metric('Spotify Followers',f'{followers:,}')
 
 col1, col2, col3 = c2.columns(3)
 
-col1.header('Weeks in the Charts')
+col2.header('Weeks in the Charts')
 for week in weeks:
-    col1.markdown("- " + week)
+    col2.markdown("- " + week)
 
-col2.header('Top Tracks')
+col1.header('Top Tracks')
 count = 0
 for json in get_top_tracks_by_artist(token, artist, 'GB'):
     count += 1
-    col2.write(f'{count}. ' + json['name'])
+    col1.write(f'{count}. ' + json['name'])
 
 col3.header('Genres')
 for genre in genres:
