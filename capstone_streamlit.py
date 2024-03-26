@@ -123,7 +123,7 @@ col2.metric("Number of Remaining Artists", f'#{defending_artists_count}')
 #st.bar_chart(artist_count_dict, width=1)
 
 ## Artist breakdown
-c2 = st.container()
+c2 = st.container(border=True)
 artists_set = set(df['artist'])
 artist = c2.selectbox('Pick an Artist',tuple(artists_set))
 
