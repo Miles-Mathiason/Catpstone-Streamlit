@@ -162,6 +162,3 @@ col2.header('Genres')
 for genre in genres:
     col2.markdown("- " + genre)
 
-
-st.write(get_top_tracks_by_artist(token, artist, 'GB'))
-
