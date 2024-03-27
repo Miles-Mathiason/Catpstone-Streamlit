@@ -162,4 +162,4 @@ col2.header('Genres')
 for genre in genres:
     col2.markdown("- " + genre)
 
-get_top_tracks_by_artist(token, 'central cee', 'US')
+f'{get_top_tracks_by_artist(token, 'central cee', 'US')}'
