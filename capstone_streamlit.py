@@ -163,5 +163,5 @@ for genre in genres:
     col2.markdown("- " + genre)
 
 
-st.write(get_top_tracks_by_artist(token, 'central cee', 'GB'))
+st.write(get_top_tracks_by_artist(token, artist, 'GB'))
 
